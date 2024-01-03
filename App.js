@@ -1,28 +1,19 @@
 import { useState } from "react";
 import {
-    Button,
     FlatList,
     StyleSheet,
-    TextInput,
     View,
 } from "react-native";
 import GoalItem from "./components/GoalItem";
+import GoalInput from "./components/GoalInput";
 
 
 export default function App() {
-    // capture the text entered
-    const [enteredGoalText, setEnteredGoalText] = useState("");
-    
     // store the goals in an array
     const [courseGoals, setCourseGoals] = useState([]); // [
-    
-    // handle the text input change
-    function goalInputHandler(enteredText) {
-        setEnteredGoalText(enteredText);
-    }
 
     // handle the add goal button press
-    function addGoalHandler() {
+    function addGoalHandler(enteredGoalText) {
         setCourseGoals((currentCourseGoals) => [
             ...currentCourseGoals,
             {text: enteredGoalText, id: Math.random().toString()},
@@ -32,14 +23,7 @@ export default function App() {
     // return the JSX
     return (
         <View style={styles.appContainer}>
-            <View style={styles.inputContainer}>
-                <TextInput
-                    placeholder="Course Goal"
-                    style={styles.textInput}
-                    onChangeText={goalInputHandler}
-                />
-                <Button title="Add Goal" onPress={addGoalHandler} />
-            </View>
+            <GoalInput onAddGoal={addGoalHandler} />
             <View style={styles.goalsContainer}>
                 <FlatList 
                     // pass the data
@@ -66,22 +50,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 50,
         paddingHorizontal: 16,
-    },
-    inputContainer: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 24,
-        borderBottomWidth: 1,
-        borderBottomColor: "#cccccc",
-    },
-    textInput: {
-        borderWidth: 1,
-        borderColor: "#cccccc",
-        width: "74%",
-        marginRight: 8,
-        padding: 8,
     },
     goalsContainer: {
         flex: 5,

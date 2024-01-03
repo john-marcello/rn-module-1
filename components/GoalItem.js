@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";  
 
 function GoalItem(props) {
+    // return the JSX
     return (
         <View style={styles.goalItem}>
             <Text style={styles.goalItemText}>{props.text}</Text>
@@ -10,6 +11,7 @@ function GoalItem(props) {
 
 export default GoalItem;
 
+// add styles
 const styles = StyleSheet.create({
     goalItem: {
         backgroundColor: "#cccccc",
