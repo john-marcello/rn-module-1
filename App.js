@@ -63,6 +63,7 @@ export default function App() {
     );
 }
 
+// add styles
 const styles = StyleSheet.create({
     appContainer: {
         flex: 1,
