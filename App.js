@@ -57,9 +57,7 @@ export default function App() {
                     }}
                     alwaysBounceHorizontal={true}
                     alwaysBounceVertical={false} />
-                {/* {courseGoals.map((goal) => (
-                    
-                ))} */}
+                {/* {courseGoals.map((goal) => ())} */}
             </View>
         </View>
     );
