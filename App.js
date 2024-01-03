@@ -3,10 +3,11 @@ import {
     Button,
     FlatList,
     StyleSheet,
-    Text,
     TextInput,
     View,
 } from "react-native";
+import GoalItem from "./components/GoalItem";
+
 
 export default function App() {
     // capture the text entered
@@ -45,12 +46,8 @@ export default function App() {
                     data={courseGoals} 
                     // render the items 
                     renderItem={(itemData) => {
-                         return (
-                            <View style={styles.goalItem}>
-                                <Text style={styles.goalItemText}>{itemData.item.text}</Text>
-                            </View>
-                        );
-                    }}
+                        return <GoalItem text={itemData.item.text} />;
+                    }} 
                     // use keyExtractor to set a unique key for each item
                     keyExtractor={(item, index) => {
                         return item.id;
@@ -88,15 +85,5 @@ const styles = StyleSheet.create({
     },
     goalsContainer: {
         flex: 5,
-    },
-    goalItem: {
-        backgroundColor: "#cccccc",
-        padding: 8,
-        margin: 8,
-        borderRadius: 6,
-        backgroundColor: "#5e0acc",
-    },
-    goalItemText: {
-        color: "#ffffff",
     },
 });
