@@ -1,12 +1,7 @@
 import { useState } from "react";
-import {
-    FlatList,
-    StyleSheet,
-    View,
-} from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
-
 
 export default function App() {
     // store the goals in an array
@@ -16,8 +11,13 @@ export default function App() {
     function addGoalHandler(enteredGoalText) {
         setCourseGoals((currentCourseGoals) => [
             ...currentCourseGoals,
-            {text: enteredGoalText, id: Math.random().toString()},
+            { text: enteredGoalText, id: Math.random().toString() },
         ]);
+    }
+
+    // handle the delete goal button press
+    function deleteGoalHandler() {
+        console.log("Delete");
     }
 
     // return the JSX
@@ -25,19 +25,25 @@ export default function App() {
         <View style={styles.appContainer}>
             <GoalInput onAddGoal={addGoalHandler} />
             <View style={styles.goalsContainer}>
-                <FlatList 
+                <FlatList
                     // pass the data
-                    data={courseGoals} 
-                    // render the items 
+                    data={courseGoals}
+                    // render the items
                     renderItem={(itemData) => {
-                        return <GoalItem text={itemData.item.text} />;
-                    }} 
+                        return (
+                            <GoalItem 
+                                text={itemData.item.text}
+                                onDeleteItem={deleteGoalHandler}
+                            />
+                        );
+                    }}
                     // use keyExtractor to set a unique key for each item
                     keyExtractor={(item, index) => {
                         return item.id;
                     }}
                     alwaysBounceHorizontal={true}
-                    alwaysBounceVertical={false} />
+                    alwaysBounceVertical={false}
+                />
                 {/* {courseGoals.map((goal) => ())} */}
             </View>
         </View>
