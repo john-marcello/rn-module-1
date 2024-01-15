@@ -36,9 +36,10 @@ export default function App() {
         });
     }
 
-    // return the JSX
+    // return the JSX and set status bar style
     return (
         <>
+            
             <StatusBar style="light" />
             <View style={styles.appContainer}>
                 <Button
