@@ -9,10 +9,12 @@ export default function App() {
     const [modalIsVisible, setModalIsVisible] = useState(false);
     const [courseGoals, setCourseGoals] = useState([]);
 
+    // handle opening the modal
     function startAddGoalHandler() {
         setModalIsVisible(true);
     }
 
+    // handle closing the modal
     function endAddGoalHandler() {
         setModalIsVisible(false);
     }
@@ -60,7 +62,7 @@ export default function App() {
                     keyExtractor={(item, index) => {
                         return item.id;
                     }}
-                    alwaysBounceHorizontal={true}
+                    alwaysBounceHorizontal={false}
                     alwaysBounceVertical={false}
                 />
                 {/* {courseGoals.map((goal) => ())} */}
