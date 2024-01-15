@@ -1,9 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 function GoalItem(props) {
-    
-    
-
     // return the JSX
     return (
         <View style={styles.goalItem}>
@@ -36,5 +33,3 @@ const styles = StyleSheet.create({
         padding: 8,
     },
 });
-
-// testing
